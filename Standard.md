@@ -10,24 +10,24 @@ Link de referencia: https://github.com/airbnb/javascript
 - Utilizar Prettier para auto formatar os documentos
 - Compartilhar configurações do VS Code para padronização do código
 
-Há neste repositório os arquivos de configuração do ESLint, Prettier e configurações default do VS Code.
+Há neste repositório os arquivos de configuração do ESLint, Prettier e configurações default do VS Code para a base de novos projetos.
 
 ### Modelo de estilização (CSS)
 
-Utilizar SASS nas apps principais (CSS as module, node-sass).
+Utilizar SASS nas apps principais (CSS as a module, utilizando node-sass).
 
 ### React
 -   Ferramentas preferíveis
 	-	Axios para requisições a apis
 	-	Redux para estados compartilhados entre componentes
 	-	NPM para gerenciamento de pacotes
--   Tipos de componentes preferíveis
+-   Tipo de componentes preferível
 	-	É preferível a utilização de functional components e hooks
 -   States
-	-	Utilizar o mínimo de estado compartilhado para diminuir a complexidade
-	-	Ao tratar formulário é preferível utilizar componentes controlados. Utilizar componentes não controlados apenas em casos extremos. (Referncia: https://pt-br.reactjs.org/docs/forms.html)
+	-	Utilizar o mínimo de estados compartilhados entre componentes "distantes" para não aumentar a complexidade desnecessáriamente.
+	-	Ao tratar formulário é preferível utilizar componentes controlados. Utilizar componentes não controlados apenas em casos extremos ou de benefício substancial seja em performance ou em diminuição da complexidade dos comportamentos do form. (Referncia: https://pt-br.reactjs.org/docs/forms.html)
 -   fluxo de dados
-No momento não estamos utilizando um padrão como MVVM, MVP ou MVP para manter a baixa complexidade. Estamos seguindo um MV, na maior parte dos casos o próprio componente da página sendo responsável por suas interações com o back-end, seu estados e seus processos, podendo ser quebrado em um Controller-View quando a complexidade da página ou componente comprometer sua evolução e manutenção.  
+-	No momento não estamos utilizando um padrão como MVVM, MVP ou MVP para manter a baixa complexidade. Estamos seguindo um MV, na maior parte dos casos o próprio componente da página sendo responsável por suas interações com o back-end, seu estados e seus processos, podendo ser quebrado em um Controller-View quando a complexidade da página ou componente comprometer sua evolução e manutenção.  
 
 ### Versionamento
 -   git flow
