@@ -1,4 +1,4 @@
-Esta proposta de standard não visa ser uma restrição, mas sim um consenso evolutivo e colaborativo entre a equipe, com objetivo de que se alcance um código harmonico, de fácil evolução e manutenção por toda a equipe, assim como facilitar a integração de novos membros.
+Esta proposta de standard não visa ser uma restrição, mas sim um consenso evolutivo e colaborativo entre a equipe, com objetivo de que se alcance um ambiente e código harmonico, de fácil evolução, e de fácil manutenção por toda a equipe, assim como facilitar a integração de novos membros.
 
 ### Code standards
 
@@ -6,8 +6,8 @@ Quanto a Code Style Guide, seguimos o padrão Rbnb, que é uma versão dos stand
 
 Link de referencia: https://github.com/airbnb/javascript
 
-- Utilizar ESLint para assegurar os padrões
-- Utilizar Prettier para auto formatar os documentos
+- Utilizar a ferramenta ESLint para ser notificado sobre quebras de padrões
+- Utilizar Prettier para auto formatar ao salvar, para questões de identação, posicionamentos de chaves, entre outros pormenores.
 - Compartilhar configurações do VS Code para padronização do código
 
 Há neste repositório os arquivos de configuração do ESLint, Prettier e configurações default do VS Code para a base de novos projetos.
