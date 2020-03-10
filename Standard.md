@@ -45,3 +45,5 @@ Utilizar SASS nas apps principais (CSS as a module, utilizando node-sass).
 Próximas sessões: 
 - Estrutura de arquivos, explicando a idéia e os motivos para cada uma)
 - Testes unitários e de UI
+
+- questões de temas, herdar de arquivos centrais
