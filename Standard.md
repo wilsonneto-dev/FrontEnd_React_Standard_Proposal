@@ -42,4 +42,6 @@ Utilizar SASS nas apps principais (CSS as a module, utilizando node-sass).
 	-	Um padrão de mensagem que buscamos usar e manter é o commit lint (https://github.com/conventional-changelog/commitlint), uma ferramenta que ajuda a mater o padrão é o commitzen (package JS), no qual ao digitarmos ```npx git-cz``` ele irá perguntar alguns pontos e gerar um commit com uma mensagem padronizada (seguindo o padrão commit lint).  
 
 
-(Próxima sessão: Estrutura de arquivos, explicando a idéia e os motivos para cada uma)
+Próximas sessões: 
+- Estrutura de arquivos, explicando a idéia e os motivos para cada uma)
+- Testes unitários e de UI
