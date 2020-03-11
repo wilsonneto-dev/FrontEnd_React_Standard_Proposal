@@ -19,14 +19,14 @@ Dicas para facilitar o processo de verificação de estilo:
 
 Há neste repositório os arquivos de configuração do ESLint, Prettier e configurações default do VS Code para a base de novos projetos.
 
-(Duas particularidades atuais nossas que divergem do padrão "rbnb" são: Utilizamos atualmente functional components e hooks como padrão, diferente da postura adotada pelo rbnb, pois sentimos que functional components e hooks são mais produtivos. Também optamos adotar CSS as a Module com SASS nos projetos de maior importância, quando na especificação do rbnb definem como default CSS-in-JS.)
+(Duas particularidades atuais nossas que divergem do padrão "rbnb" são: Utilizamos atualmente functional components e hooks como padrão, diferente da postura adotada pelo rbnb, pois sentimos que functional components e hooks são mais produtivos. Também optamos por adotar CSS as a Module com SASS nos projetos de maior importância, enquanto na especificação do rbnb é definido como default o CSS-in-JS, optamos por SASS com a intenção de não nos distanciarmos demais das tecnologias bases da web, neste caso do CSS default dos browsers, e também diminuir a curva de aprendizado.)
 
 
 ### Modelo de estilização (CSS)
 
-Utilizar SASS nas apps principais (CSS as a module, utilizando node-sass, já configurados no projeto).
--	Cores: O mais indicado é não definir cores dentro de seletores CSS, mas sim usar arquivos de variáveis através das features do SASS, sejam estes globais ou do escopo do componente, caso sejam globais deverão ser definidas junto as demais variáveis globais, caso não sejão deveram ser definidas em variáveis em arquivos no próprio diretório do componente em questão.
--	Estilos: Os estilos globais assim como as variáveis globais deverão ser definidos no diretório global, porém os estilos e variáveis referentes a determinados componentes ou seus filhos, devem estar exclusivamente no diretório do próprio componente, para facilitar a manutenção e reaproveitamento de códigos e componentes.
+Buscamos utilizar SASS nas apps principais (utilizando "CSS as a module", utilizando o loader node-sass do babel, já configurados no projeto atual e muito fácil e simples de adicionar em novos projetos que usem CRA - Create React App ou NextJS).
+-	Cores: O mais indicado é não definir cores dentro de seletores CSS nos arquivos de estilos, mas sim usar arquivos de variáveis através das features do SASS, assim centralizando e facilitando a manutenção e evolução, sejam estas cores globais ou do escopo do componente, caso sejam globais deverão ser definidas junto as demais variáveis globais, caso não sejão deveram ser definidas em variáveis em arquivos no próprio diretório do componente em questão.
+-	Estilos: Os estilos globais assim como as variáveis globais deverão ser definidos no diretório global, porém os estilos e variáveis referentes a determinados componentes ou seus filhos, devem estar exclusivamente no diretório do próprio componente, para facilitar a manutenção e otimizar a componentização e o reaproveitamento de códigos e componentes. No caso de 1 ou 2 arquivos de estilo é interessante deixá-los na raíz da pasta do componente, porém ao termos muitos arquivos de estilos é mais interessante colocá-los em uma pasta 'styles' dentro da pasta do componente.
 
 ### React
 -   Ferramentas preferíveis
@@ -39,23 +39,34 @@ Utilizar SASS nas apps principais (CSS as a module, utilizando node-sass, já co
 	-	Utilizar o mínimo de estados compartilhados entre componentes "distantes" para não aumentar a complexidade desnecessáriamente.
 	-	Ao tratar formulário é preferível utilizar componentes controlados. Utilizar componentes não controlados apenas em casos extremos ou de benefício substancial seja em performance ou em diminuição da complexidade dos comportamentos do form. (Referncia: https://pt-br.reactjs.org/docs/forms.html)
 -   fluxo de dados
-	-	No momento não estamos utilizando um padrão como MVVM, MVP ou MVP para manter a baixa complexidade. Estamos seguindo um MV, na maior parte dos casos o próprio componente da página sendo responsável por suas interações com o back-end, seu estados e seus processos, podendo ser quebrado em um Controller-View quando a complexidade da página ou componente comprometer sua evolução e manutenção.  
+	-	No momento não estamos utilizando um padrão arquitetural como MVVM, MVP ou MVP para manter a baixa complexidade, já que o coração do domínio e das regras de negócios está no backend. Estamos seguindo um modelo MV, na maior parte dos casos o próprio componente é responsável por suas interações com o back-end, seu estados e seus processos, podendo ser quebrado em um Controller-View quando a complexidade da página ou componente comprometer sua evolução, compreensão e/ou manutenção. Buscamos sempre separar a parte visual/UI de processos da parte lógica, ou regras de negócios e/ou validações, mesmo que referentes ao componente.  
 
 ### Versionamento
--   git flow
-	-	Buscamos utilizar uma estrutura simplificada baseada no gitflow, onde contamos com dois branchs principais, o master, que busca sempre ser uma cópia fiel a aplicação que está em produção, e o branch dev, que é o branch das features e hotfixes que estão sob desenvolvimento, buscamos nunca mergear ou commitar alterações que fação com que o sistema na branch master fique "quebrado".
-		-	Master: Fiel a codebase de produção
-		-	Dev: Branch de desnvolvimento
-		-	Branchs de features, correções de bugs e hotfixes: Criar um branch para determinadas demandas para após sua conclusão mergear ao branch develop para homologação e testes
+-   Git e fluxo
+	-	Buscamos utilizar uma estrutura simplificada baseada no gitflow, onde contamos com dois branchs principais, o master, que busca sempre ser uma cópia fiel a aplicação que está em produção, e o branch dev, que é o branch utilizado como raíz para o desnvolvimento das novas features, alterações e hotfixes. Buscamos nunca mergear, dar push ou commitar alterações que fação com que o sistema na branch dev fique "quebrado". A branch master só é alterada através de merges da branch dev.
+		-	Master: Fiel a codebase de produção, alterações são incluídas aqui apenas após homologação e testes
+		-	Dev: Branch de desnvolvimento, utilizada como base para as branchs de novas features, hotfixes, alterações... Este branch visa sempre ter a última versão estável, é nele que ocorrem as homologações e testes.
+		-	Branchs de features, correções de bugs, alterações e hotfixes: Criar um branch baseado no dev para as demandas sob desenvolvimento, para após sua conclusão mergear ao branch dev para homologação e testes.
 -   Commits e mensagens
-	-	Buscar nunca commitar alterações que quebrem o sistema
-	-	Buscar sempre deixar mensagens sucintas porém explicativas sobre seus commits
-	-	Commitar pequenos passos, e procurar separar os commits por contextos
-	-	Um padrão de mensagem que buscamos usar e manter é o commit lint (https://github.com/conventional-changelog/commitlint), uma ferramenta que ajuda a mater o padrão é o commitzen (package JS), no qual ao digitarmos ```npx git-cz``` ele irá perguntar alguns pontos e gerar um commit com uma mensagem padronizada (seguindo o padrão commit lint).  
+	-	Commitar pequenos passos inteiros, pequenas features completas, buscar evitar commits não finalizados ou que quebrem a app
+	- Buscar manter um padrão de mensagens de commits, bem sucinta, porém explicativa, onde seja fácil identificar o escopo do projeto em que a alteração foi feita, o tipo da alteração, a causa/problema/demanda e a solução. Fazer com seja fácil identificar o que foi alterado, o porque foi alterado, como foi alterado/solucionado. Exemplo: ```Player / Bug: Não estava tocando TVOD, foi corrigido alterando o arquivo xpto.js, onde quebrava na validação entre HLS ou Dash``` 
+	-	Buscar nunca commitar/push de alterações que quebrem o sistema
+	-	Commitar pequenos passos, e procurar separar os commits por contextos, se houveram 3 alterações de 3 contextos distintos como por exemplo: Alterados os estilos do header e a função play() do player, o ideal seria que fossem feitos dois commits separados por contexto de alteração.
+	-	Assim que ok e feitos os devidos testes de desenvolvimento, mergear o branch de feature, se for o caso, com o branch develop e colocar para testes de Q&A e homologação.
+
+### Testes (Opcional, porém interessante)
+-	Testes unitários:
+	-	No front a maior parte das lógicas e códigos são sobre componentes de UI e buscar dados do servidor, sendo assim não há necessidade de testes unitários. Porém em alguns momentos, em lógicas mais delicadas e sensíveis, em casos de usos críticos para UX e para o negócio, é muito interessante desacoplar a lógica em questão em um objeto de serviço fácil de testar e criar testes unitários para ele. Por exemplo: O cálculo do valor exibido na tela em que o serviço disponibiliza apenas percentuais de desconto que se encaixam ou não para o usuário e que deve ser calculado em runtime, este seria um ótimo caso para cobrir por testes pois um erro ali, ou uma alteração que cause a quebra da lógica, precisa ser identificado de imediato.
+	- Utilizar Jest para testes unitários
+	- Sempre rodar todos os testes unitários disponíveis e de UI para se certificar de que não quebrou nenhum teste, antes de concluir uma demanda ou dar o código como estável, apenas mergear nas branchs bases de códigos que passaram em todos os testes, de UI e unitários.
+-	Testes de UI
+	-	É muito interessante criar testes de UI para se certificar de que as alterações futuras não quebrem comportamentos de formulários, players, listagens e etc. Um exemplo seria o fluxo de cadastro do usuário, assim como o fluxo de assistir a um vídeo.
+	-	Testes de UI também irão facilidar o processo da equipe de Q&A
+	-	É indicado utilizar o CyPress para testes de UI
+	-	Sempre antes de dar uma demanda como concluída, ou de mergear o código nas branchs bases, se certificar de que não fez com que quebrasse nenhum teste, para isso rodar todos os testes de UI e unitários.
 
 
+
+----
 Próximas sessões: 
-- Estrutura de arquivos, explicando a idéia e os motivos para cada uma)
-- Testes unitários e de UI
-
-- questões de temas, herdar de arquivos centrais
+- Estrutura de arquivos, explicando a idéia e os motivos para cada uma, mas após nos certificarmos de que a atual é realmente masi interessante
