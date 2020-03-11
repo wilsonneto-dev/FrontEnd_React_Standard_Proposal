@@ -10,7 +10,7 @@ Referencia ao style guide: https://github.com/airbnb/javascript
 
 Porém não é necessário decorarmos o style guide do rbnb, é interessante dar uma olhada, mas as principais ferramentas de lint do mercado já possuem este (e elguns outros padrões), bastando configurá-las para que notifiquem sempre que alguma parte do código estiver em desacordo com este padrão, assim como mostrar uma explicação e a correção indicada.
 
-Também sempre buscamos melhorar este padrão, em consenso, ajustando as regras do eslint em algumas para que se encaixe melhor em nosso projeto e ambiente, estes ajustes sendo salvos no arquivo eslintrc já estarão disponíveis para todos do projeto. 
+Também sempre buscamos melhorar este padrão, em consenso, ajustando as regras do eslint para que se encaixe melhor em nosso projeto e ambiente, estes ajustes sendo salvos no arquivo eslintrc já estarão disponíveis para todos do projeto. 
 
 Dicas para facilitar o processo de verificação de estilo:
 - Utilizar a ferramenta ESLint para ser notificado sobre quebras de padrões, assim como as correções
