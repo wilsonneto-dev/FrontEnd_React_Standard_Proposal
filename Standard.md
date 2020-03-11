@@ -8,16 +8,16 @@ Quanto a um padrão de estilo de codificação (Code Style Guide), buscamos segu
 
 Referencia ao style guide: https://github.com/airbnb/javascript
 
-Porém não é necessário decorarmos o style guide do rbnb, é interessante dar uma olhada, mas as principais ferramentas de lint do mercado já possuem este (e elguns outros padrões), bastando configurá-la para que ela notifique sempre que alguma parte do código estiver em desacordo com este padrão, assim como mostrar uma explicação e a correção indicada.
+Porém não é necessário decorarmos o style guide do rbnb, é interessante dar uma olhada, mas as principais ferramentas de lint do mercado já possuem este (e elguns outros padrões), bastando configurá-las para que notifiquem sempre que alguma parte do código estiver em desacordo com este padrão, assim como mostrar uma explicação e a correção indicada.
 
-Também sempre buscamos melhorar este padrão, em consenso, ajustando o eslint em algumas regras para que se encaixe melhor em nosso projeto e ambiente, estes ajustes sendo salvos no arquivo eslintrc já estarão disponíveis para todos do projeto. 
+Também sempre buscamos melhorar este padrão, em consenso, ajustando as regras do eslint em algumas para que se encaixe melhor em nosso projeto e ambiente, estes ajustes sendo salvos no arquivo eslintrc já estarão disponíveis para todos do projeto. 
 
 Dicas para facilitar o processo de verificação de estilo:
 - Utilizar a ferramenta ESLint para ser notificado sobre quebras de padrões, assim como as correções
 - Utilizar Prettier para auto formatar ao salvar, para questões de identação, espaços por tabs, posicionamentos de chaves, entre outros pormenores que por vezes passam batidos por nós.
-- Compartilhar configurações do VS Code para padronização do código
+- Compartilhar configurações do VS Code, caso seja o editor adotado, para facilitar a padronização
 
-Há neste repositório os arquivos de configuração do ESLint, Prettier e configurações default do VS Code para a base de novos projetos.
+Há neste repositório os arquivos de configuração do ESLint, Prettier e configurações default do VS Code para servir de base a novos projetos.
 
 (Duas particularidades atuais nossas que divergem do padrão "rbnb" são: Utilizamos atualmente functional components e hooks como padrão, diferente da postura adotada pelo rbnb, pois sentimos que functional components e hooks são mais produtivos. Também optamos por adotar CSS as a Module com SASS nos projetos de maior importância, enquanto na especificação do rbnb é definido como default o CSS-in-JS, optamos por SASS com a intenção de não nos distanciarmos demais das tecnologias bases da web, neste caso do CSS default dos browsers, e também diminuir a curva de aprendizado.)
 
