@@ -71,4 +71,4 @@ Buscamos utilizar SASS nas apps principais (utilizando "CSS as a module", utiliz
 
 ----
 Próximas sessões: 
-- Estrutura de arquivos, explicando a idéia e os motivos para cada uma, mas após nos certificarmos de que a atual é realmente masi interessante
+- Estrutura de arquivos
