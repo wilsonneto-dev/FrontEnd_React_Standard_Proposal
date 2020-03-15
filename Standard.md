@@ -4,11 +4,11 @@ As entregas, a qualidade das mesmas, as correções, os prazos e a UX são muito
 
 ### Code standards
 
-Quanto a um padrão de estilo de codificação (Code Style Guide), buscamos seguir o padrão do rbnb, que é uma versão dos standards javascripts mais adotados no mercado e otimizados para se trabalhar com React e JS moderno.
+Quanto a um padrão de estilo de codificação (Code Style Guide), buscamos seguir o padrão do airbnb, que é uma versão dos standards javascripts mais adotados no mercado e otimizados para se trabalhar com React e JS moderno.
 
 Referencia ao style guide: https://github.com/airbnb/javascript
 
-Porém não é necessário decorarmos o style guide do rbnb, é interessante dar uma olhada, mas as principais ferramentas de lint do mercado já possuem este (e elguns outros padrões), bastando configurá-las para que notifiquem sempre que alguma parte do código estiver em desacordo com este padrão, assim como mostrar uma explicação e a correção indicada.
+Porém não é necessário decorarmos o style guide do airbnb, é interessante dar uma olhada, mas as principais ferramentas de lint do mercado já possuem este (e elguns outros padrões), bastando configurá-las para que notifiquem sempre que alguma parte do código estiver em desacordo com este padrão, assim como mostrar uma explicação e a correção indicada.
 
 Também sempre buscamos melhorar este padrão, em consenso, ajustando as regras do eslint para que se encaixe melhor em nosso projeto e ambiente, estes ajustes sendo salvos no arquivo eslintrc já estarão disponíveis para todos do projeto. 
 
@@ -19,7 +19,7 @@ Dicas para facilitar o processo de verificação de estilo:
 
 Há neste repositório os arquivos de configuração do ESLint, Prettier e configurações default do VS Code para servir de base a novos projetos.
 
-(Duas particularidades atuais nossas que divergem do padrão "rbnb" são: Utilizamos atualmente functional components e hooks como padrão, diferente da postura adotada pelo rbnb, pois sentimos que functional components e hooks são mais produtivos. Também optamos por adotar CSS as a Module com SASS nos projetos de maior importância, enquanto na especificação do rbnb é definido como default o CSS-in-JS, optamos por SASS com a intenção de não nos distanciarmos demais das tecnologias bases da web, neste caso do CSS default dos browsers, e também diminuir a curva de aprendizado.)
+(Duas particularidades atuais nossas que divergem do padrão "airbnb" são: Utilizamos atualmente functional components e hooks como padrão, diferente da postura adotada pelo airbnb, pois sentimos que functional components e hooks são mais produtivos. Também optamos por adotar CSS as a Module com SASS nos projetos de maior importância, enquanto na especificação do airbnb é definido como default o CSS-in-JS, optamos por SASS com a intenção de não nos distanciarmos demais das tecnologias bases da web, neste caso do CSS default dos browsers, e também diminuir a curva de aprendizado.)
 
 
 ### Modelo de estilização (CSS)
