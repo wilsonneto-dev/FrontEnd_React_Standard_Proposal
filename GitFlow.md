@@ -1,3 +1,5 @@
+<img src="https://static.imasters.com.br/wp-content/uploads/2015/04/git-workflow-release-cycle-4maintenance.png" width="450" />
+
 - Branchs de Master e Development.
 - Só vai para a master o que acabou de ir para produção
 - Ai finalizar e fechar versão de release criar um release/*
@@ -25,6 +27,11 @@ HotFix:
 - 4 - Mergear este hotfix na development
 - 4.1 - Testes de QA e end to end aqui (release)
 
-fix/*
-Bugs na Development:
-- 1 - Gerar um fix/*
+---
+
+Referencias:
+
+https://imasters.com.br/agile/fluxo-de-desenvolvimento-com-gitflow
+
+https://www.atlassian.com/br/git/tutorials/comparing-workflows/gitflow-workflow
+
