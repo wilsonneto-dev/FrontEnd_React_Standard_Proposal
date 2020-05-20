@@ -1,8 +1,8 @@
 <img src="https://static.imasters.com.br/wp-content/uploads/2015/04/git-workflow-release-cycle-4maintenance.png" width="450" />
 
-- Branchs de Master e Development.
+- Branchs de Master (Prod), Homolog e Development.
 - Só vai para a master o que acabou de ir para produção
-- Ai finalizar e fechar versão de release criar um release/*
+- Ao finalizar e fechar versão de release criar um release/*
 
 release/* -> deploy -> master
 
