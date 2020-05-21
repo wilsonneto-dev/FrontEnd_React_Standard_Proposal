@@ -45,31 +45,22 @@ Buscamos utilizar SASS nas apps principais (utilizando "CSS as a module", utiliz
 
 ### Versionamento
 -   Git e fluxo
-	-	Buscamos utilizar uma estrutura simplificada baseada no gitflow, onde contamos com dois branchs principais, o master, que busca sempre ser uma cópia fiel a aplicação que está em produção, e o branch dev, que é o branch utilizado como raíz para o desnvolvimento das novas features, alterações e hotfixes. Buscamos nunca mergear, dar push ou commitar alterações que fação com que o sistema na branch dev fique "quebrado". A branch master só é alterada através de merges da branch dev.
-		-	Master: Fiel a codebase de produção, alterações são incluídas aqui apenas após homologação e testes
-		-	Dev: Branch de desnvolvimento, utilizada como base para as branchs de novas features, hotfixes, alterações... Este branch visa sempre ter a última versão estável, é nele que ocorrem as homologações e testes.
-		-	Branchs de features, correções de bugs, alterações e hotfixes: Criar um branch baseado no dev para as demandas sob desenvolvimento, para após sua conclusão mergear ao branch dev para homologação e testes.
--   Commits e mensagens
-	-	Commitar pequenos passos inteiros, pequenas features completas, buscar evitar commits não finalizados ou que quebrem a app
-	- Buscar manter um padrão de mensagens de commits, bem sucinta, porém explicativa, onde seja fácil identificar o escopo do projeto em que a alteração foi feita, o tipo da alteração, a causa/problema/demanda e a solução, sem que seja necessário abrir os logs de alterações para identificar o contexto e causa da alteração. Fazer com que seja fácil identificar o que foi alterado, o porque foi alterado, como foi alterado/solucionado. Exemplo de mensagem: ```Player / Bug: Não estava tocando TVOD no chrome, foi corrigido alterando o arquivo xpto.js, onde quebrava na validação entre HLS ou Dash```. Caso necessário um texto mais explicativo e maior, utilizar o exemplo acima como introdução, o que vai aparecer nas ferramentas de histórico, pular uma linha e escrever o texto mais explicativo abaixo, para assim facilitar a compreensão e identificação por outros membros da equipe. 
+	-	Buscamos utilizar uma estrutura simplificada baseada no gitflow, onde contamos com tres branchs principais, o master, que busca sempre ser uma cópia fiel a aplicação que está em produção, e o branch develop, que é o branch utilizado como raíz para o desnvolvimento das novas features, e o branch release que é o espelho da versão em processo de release e homologação. Buscamos nunca mergear, dar push ou commitar alterações que fação com que o sistema na branch develop fique "quebrado". As branchs master, release e develop sempre serão alteradas apenas por pull requests.
+	-	Commitar sempre pequenos passos inteiros, pequenas features completas, buscar evitar commits não finalizados ou que quebrem a app até mesmo em sub-branchs de feature ou hotfix.
+	- Buscar manter um padrão de mensagens de commits, bem sucinta, porém explicativa, onde seja fácil identificar o escopo do projeto em que a alteração foi feita, o tipo da alteração, a causa/problema/demanda e a solução, sem que seja necessário abrir os logs de alterações para identificar o contexto e causa da alteração. Fazer com que seja fácil identificar o que foi alterado, o porque foi alterado, como foi alterado/solucionado. Exemplo de mensagem: ```Looke (Bug: Player): Não estava tocando TVOD no chrome, foi corrigido alterando o arquivo xpto.js, onde quebrava na validação entre HLS ou Dash causado por um update```. Caso necessário um texto mais explicativo e maior, utilizar o exemplo acima como introdução, o que vai aparecer nas ferramentas de histórico, pular uma linha e escrever o texto mais explicativo abaixo, para assim facilitar a compreensão e identificação por outros membros da equipe. 
 	-	Buscar nunca commitar/push de alterações que quebrem a aplicação
 	-	Commitar pequenos passos completos, e procurar separar os commits por contextos, se houveram 3 alterações de 3 contextos distintos como por exemplo: Alterados os estilos do header e a função play() do player, o ideal seria que fossem feitos dois commits separados por contexto de alteração.
-	-	Assim que ok e feitos os devidos testes de desenvolvimento, mergear o branch de feature, se for o caso, com o branch develop e colocar para testes de Q&A e homologação.
+	-	Assim que ok e feitos os devidos testes de desenvolvimento, mergear o branch de feature, se for o caso, com o branch develop.
 
-### Testes (Opcional, porém interessante)
+### Testes
 -	Testes unitários:
-	-	No front a maior parte das lógicas e códigos são sobre componentes de UI, validações de inputs e buscar dados do servidor, sendo assim não há necessidade de sempre ter testes unitários. Porém em alguns momentos, em lógicas mais delicadas e sensíveis, em casos de usos críticos para UX e/ou para o negócio, é muito interessante desacoplar a lógica em questão em um objeto de serviço fácil de se testar e criar testes unitários para ele. Por exemplo: O cálculo do valor exibido na tela em que o serviço disponibiliza apenas percentuais de desconto que se encaixam ou não para o usuário e que deve ser calculado em runtime, este seria um ótimo caso para cobrir por testes pois um erro ali, ou uma alteração que cause a quebra da lógica, precisa ser identificado de imediato.
+	-	No front a maior parte das lógicas e códigos são sobre componentes de UI, validações de inputs e buscar dados do servidor, sendo assim não há necessidade de se ter uma cobertura de testes unitários. Porém em alguns momentos, em lógicas mais delicadas e sensíveis, em casos de usos críticos para UX e/ou para o negócio, é muito interessante desacoplar a lógica em questão em um objeto de serviço fácil de se testar e criar testes unitários para ele. Por exemplo: O cálculo do valor exibido na tela em que o serviço disponibiliza apenas percentuais de desconto que se encaixam ou não para o usuário e que deve ser calculado em runtime, este seria um ótimo caso para cobrir por testes pois um erro ali, ou uma alteração que cause a quebra da lógica, precisa ser identificado de imediato.
 	- Utilizar Jest para testes unitários
-	- Sempre rodar todos os testes unitários disponíveis e de UI para se certificar de que não quebrou nenhum teste, antes de concluir uma demanda ou dar o código como estável, apenas mergear nas branchs bases de códigos que passaram em todos os testes, de UI e unitários.
--	Testes de UI
-	-	É muito interessante criar testes de UI para se certificar de que as alterações futuras não quebrem comportamentos de formulários, players, listagens e etc. Um exemplo seria o fluxo de cadastro do usuário, assim como o fluxo de assistir a um vídeo.
-	-	Testes de UI também irão facilidar o processo da equipe de Q&A
-	-	É indicado utilizar o CyPress para testes de UI
+	- Sempre rodar todos os testes unitários disponíveis e de UI/end to end para se certificar de que não quebrou nenhum teste/funcionalidade já existente, antes de concluir uma demanda ou dar o código como estável, apenas mergear nas branchs bases de códigos que passaram em todos os testes, de UI/end to end, integração e unitários.
+-	Testes End to Ende
+	-	É muito interessante criar testes end to end para se certificar de que as alterações futuras não quebrem comportamentos de formulários, players, listagens e etc. Um exemplo seria o fluxo de cadastro do usuário, assim como o fluxo de assistir a um vídeo.
+	-	Testes de UI, ou end to end também irão facilidar o processo da equipe de Q&A
+	-	É indicado utilizar o CyPress para testes end to end
 	-	Pensar nos casos de uso de sucesso, porém pensar muito também nos casos de uso de erros, de inputs incorretos dos usuários, casos onde é necessário um feed para o usuário, casos onde a informação pode estar incompleta ou com a integridade comprometida, e outros casos que saem do "fluxo feliz" da aplicação, testes de UI para estes casos são tão importantes quanto os casos do "fluxo feliz".
 	-	Sempre antes de dar uma demanda como concluída, ou de mergear o código nas branchs bases, se certificar de que não fez com que quebrasse nenhum teste, para isso rodar todos os testes de UI e unitários.
-
-
-
-----
-Próximas sessões: 
-- Estrutura de arquivos
+	- Em alguns momentos será necessário um teste de componente e suas propriedadaes, nestes casos usar jest com enzyme.
