@@ -1,37 +1,29 @@
 <img src="https://static.imasters.com.br/wp-content/uploads/2015/04/git-workflow-release-cycle-4maintenance.png" width="450" />
 
-- Branchs de Master (Prod), Homolog e Development.
-- Só vai para a master o que acabou de ir para produção
-- Ao finalizar e fechar versão de release criar um release/*
+- Branchs de Master (espelho de Prod), Release (espelho de homologação) e Develop (de onde puxaremos os branchs).
+- Só vai para a master quando já vai para prod, sempre será um espelho do prod
+- Ao finalizar e fechar uma versão no develop, mergear no branch Release e vai para homologação / QA
+- Ao passar pela aprovação de homologação, é mergeado na master e é feito o deploy
+- Nunca dar push direto na master, release ou develop (somente pull requests)
+- A branch de feature sempre sai da develop, apenas em caso de bug/hotfix o branche será gerado a partir da master/prod 
 
-release/* -> deploy -> master
-
-feature/*
 Feature
+feature/*
 - 1 - Puxa uma branch da master com feature/*
-- 2 - Commits funcionais / Push a todo commit
-- 2.1 - Fazer vários testes aqui (dev) 
-- 3 - Encerrou faz um PR para a Development
-- 3.1 - Alguém precisa aprovar este PR por code review
-- 4.1 - Gerar homologação para testes da nova feature, testes de QA e End to End
-- 5 - Quando for gerar corte/release pega o deve  abre um branch de release/**
-- 5.1 - estando na loja mergea na master, colocar tag.
+- 2 - Commits funcionais, comitar steps, código rodando, evitar commitar "work in progress" / preferencial push a todo commit e commit a todo step
+- 3 - Encerrou e testou bem faz um PR para a Development
+- 3.1 - Avisar squad que entrou PR (Code review não será obrigatório, não precisará de aprovação, mas sempre se iterar das features entregues e dos códigos mergeados entre a equipe)
 
 hotfix/*
 HotFix:
-- 1 - Puxa o branch da master hotfix/**
-- 2 - Feita a correção rodar testes aqui
-- 3 - caso precise já subir em prod novamente, versionamento 0.1.x
-- 3.1 - Testes de QA e end to end aqui (para release)
-- 3.2 - tagear e deploy da hotfix - feito o deploy mergear com a Master
-- 4 - Mergear este hotfix na development
-- 4.1 - Testes de QA e end to end aqui (release)
+- 1 - Puxa o branch da master/prod com nome hotfix/**
+- 2 - Feita a correção rodar testes, testes end to end
+- 3 - Solicitar equipe de QA aqui
+- 4 - Esta correção deverá ser imediatamente, após aprovada mergeada na brach dev e na brach master/prod (será efetuado o deploy aqui)
 
 ---
 
 Referencias:
-
 https://imasters.com.br/agile/fluxo-de-desenvolvimento-com-gitflow
-
 https://www.atlassian.com/br/git/tutorials/comparing-workflows/gitflow-workflow
 
