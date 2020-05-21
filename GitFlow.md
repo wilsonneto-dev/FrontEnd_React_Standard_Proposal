@@ -26,5 +26,6 @@ HotFix:
 Referencias:
 
 https://imasters.com.br/agile/fluxo-de-desenvolvimento-com-gitflow
+
 https://www.atlassian.com/br/git/tutorials/comparing-workflows/gitflow-workflow
 
