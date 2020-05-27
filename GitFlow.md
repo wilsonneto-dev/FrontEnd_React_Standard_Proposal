@@ -9,7 +9,7 @@
 
 Feature
 feature/*
-- 1 - Puxa uma branch da master com feature/*
+- 1 - Puxa uma branch da develop com feature/*
 - 2 - Commits funcionais, comitar steps, código rodando, evitar commitar "work in progress" / preferencial push a todo commit e commit a todo step
 - 3 - Encerrou e testou bem faz um PR para a Development
 - 3.1 - Avisar squad que entrou PR (Code review não será obrigatório, não precisará de aprovação, mas sempre se iterar das features entregues e dos códigos mergeados entre a equipe)
